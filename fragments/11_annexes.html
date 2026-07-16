@@ -1,0 +1,449 @@
+<section class="chapter" id="ch-annexes">
+  <header class="chapter-header">
+    <span class="chapter-no">CH.12</span>
+    <h2>附錄：規範表、設計查證表與工程計算</h2>
+    <p class="chapter-sub">把「採購合約介面」與「設計審查工具」一次到位｜對應標準附錄總則、附錄C、附錄D、附錄AA～附錄EE</p>
+  </header>
+
+  <p class="lead">本章導讀：CNS 61439-6 的附錄分為兩大類——「管理類」（附錄C 使用者規範表、附錄D 設計查證）與「計算／量測類」（附錄AA 電壓降、附錄BB 相導體特性、附錄CC 故障迴路零序阻抗、附錄DD 故障迴路電阻及電抗、附錄EE 磁場量測）。在匯流排線槽系統(Busbar Trunking System, BTS)的全生命週期中，附錄C 是規劃採購階段的合約語言，附錄D 是設計審查與出廠前查驗的查檢表，附錄AA～EE 則是顧問在設計審查時核算電壓降、故障電流與電磁環境的技術後盾。試運轉階段的許多爭議——電壓降超標、接地故障保護不跳脫、驗收無依據——追根究柢都是這幾個附錄沒有用好。本章逐一重建原文表格架構並教學填寫與計算方法。</p>
+
+  <div class="block">
+    <h3>■ 條文解析</h3>
+
+    <h4>一、附錄總則：附錄的性質與定位</h4>
+    <p>本標準於「附錄」章開宗明義規定：<strong>「除下列所述，CNS 15783-1 之附錄適用於本標準。」</strong>並作出四項調整：</p>
+    <ul>
+      <li><strong>取代附錄C</strong>：以 BTS 專用的「使用者規範表」（表C.1）取代 CNS 15783-1 原附錄C 的通用規範表。</li>
+      <li><strong>取代附錄D</strong>：以 BTS 專用的「設計查證」清單（表D.1）取代原附錄D。</li>
+      <li><strong>附錄E、附錄O、附錄P 不適用於本標準</strong>。</li>
+      <li><strong>追加附錄AA 至附錄EE</strong>：五個 BTS 專屬的工程計算與量測附錄。</li>
+    </ul>
+    <p>附錄C、D、AA～EE 均標示為<strong>「(參考)」</strong>，即屬「參考附錄」(informative annex)——不構成本標準之強制要求，但卻是標準<strong>建議採用</strong>的方法與格式。顧問必須理解其真實效力：表C.1 一旦被寫進採購規範並經買賣雙方簽認，即由「參考」升格為<strong>合約文件</strong>，成為交貨與驗收之依據；附錄AA～EE 的公式與量測法，則是審查製造廠型式試驗報告與阻抗宣告值時的技術基準。換言之，「參考附錄」是標準給工程師的標準化作業模板——不用它不違法，但用了它，採購、查證、驗收才有共同語言。</p>
+    <div class="callout tip">
+      <strong>顧問心法：</strong>參考附錄的真正價值在於「介面標準化」。表C.1 把業主需求翻譯成製造廠看得懂的欄位；表D.1 把第10節查證要求整理成一張可勾稽的清單；附錄AA～EE 把 5.101、5.102 要求宣告的電氣特性（R、X、Z、故障迴路阻抗、磁場）規定了統一的求得方法。審查時若發現製造廠以「自家方法」提出數據，應要求其說明與附錄方法的差異。
+    </div>
+
+    <h4>二、附錄C 規範表（表C.1 使用者規範表）</h4>
+    <p>附錄C「規範表」為參考附錄，其核心文件即<strong>表C.1「使用者規範表」</strong>。此表是 CNS 61439 系列「使用者與製造廠間之協議」精神的具體化：把一條 BTS 從電力系統介面、短路耐受、安裝環境到電流承載能力，拆解為數十個欄位，每個欄位給出<strong>參考節次</strong>（回到本標準哪一節）、<strong>預設配置</strong>（使用者不填時適用之標準預設）、<strong>標準所列之選項</strong>（可選範圍）與<strong>使用者要求</strong>（由使用者填寫）。以下依原文（PDF 第27～31頁）完整重建其欄位架構；「使用者要求」欄於原表為空白，供使用者逐項填入。</p>
+
+    <table class="std-table">
+      <caption>表C.1 — 使用者規範表（依 CNS 61439-6 附錄C 重建；「使用者要求」欄原表留白供填寫）</caption>
+      <thead>
+        <tr><th>特性</th><th>參考節次</th><th>預設配置</th><th>標準所列之選項</th><th>使用者要求</th></tr>
+      </thead>
+      <tbody>
+        <tr><td colspan="5"><strong>電力系統</strong></td></tr>
+        <tr><td>接地系統</td><td>5.6、8.4.3.1、8.4.3.2.3、8.6.2、10.5、11.4</td><td>製造廠之標準，配合當地要求選擇</td><td>TT / TN-C / TN-C-S / IT / TN-S</td><td></td></tr>
+        <tr><td>標稱電壓 U<sub>n</sub> (V)</td><td>3.8.9.1、5.2.1、8.5.3</td><td>當地要求，依安裝條件</td><td>≤1,000 V（交流）或 1,500 V（直流）</td><td></td></tr>
+        <tr><td>暫態過電壓</td><td>5.2.4、8.5.3、9.1、附錄G</td><td>由電力系統決定</td><td>過電壓類別 III / IV</td><td></td></tr>
+        <tr><td>暫時過電壓</td><td>9.1</td><td>標準系統電壓＋1,200 V</td><td>無</td><td></td></tr>
+        <tr><td>額定頻率 f<sub>n</sub> (Hz)</td><td>3.8.12、5.5、8.5.3、10.10.2.3、10.11.5.4</td><td>依當地安裝條件</td><td>直流 / 50 Hz / 60 Hz</td><td></td></tr>
+        <tr><td>額外之現場測試要求：配線及電力作業</td><td>11.10</td><td>製造廠之標準，依其應用</td><td>無</td><td></td></tr>
+        <tr><td colspan="5"><strong>短路耐受能力</strong></td></tr>
+        <tr><td>於電源端子之預期短路電流 I<sub>cp</sub> (kA)</td><td>3.8.7</td><td>由電力系統決定</td><td>無</td><td></td></tr>
+        <tr><td>中性點之預期短路電流</td><td>10.11.5.3.5</td><td>最高為相值之 60 %</td><td>無</td><td></td></tr>
+        <tr><td>保護性電路之預期短路電流</td><td>10.11.5.6</td><td>最高為相值之 60 %</td><td>無</td><td></td></tr>
+        <tr><td>進線功能性單元之短路保護裝置(SCPD)</td><td>9.3.2</td><td>依當地安裝條件</td><td>是 / 否</td><td></td></tr>
+        <tr><td>短路保護裝置之協調，包括外部短路保護裝置細節</td><td>9.3.4</td><td>依當地安裝條件</td><td>無</td><td></td></tr>
+        <tr><td>與可能產生短路電流之負載有關聯的資料</td><td>9.3.2</td><td>無負載可能產生已容許之顯著貢獻</td><td>無</td><td></td></tr>
+        <tr><td colspan="5"><strong>故障迴路特性</strong></td></tr>
+        <tr><td>故障迴路特性</td><td>5.101、附錄CC、附錄DD</td><td>製造廠之標準</td><td>無</td><td></td></tr>
+        <tr><td colspan="5"><strong>對人員之防電擊保護（依 IEC 60364-4-41）</strong></td></tr>
+        <tr><td>防電擊之保護型式－基本保護（防止直接接觸之保護）</td><td>8.4.2</td><td>基本保護</td><td>依當地安裝法規</td><td></td></tr>
+        <tr><td>防電擊之保護型式－故障保護（防止間接接觸之保護）</td><td>8.4.3</td><td>依當地安裝條件</td><td>電源自動切離 / 電氣隔離 / 總絕緣</td><td></td></tr>
+        <tr><td colspan="5"><strong>安裝環境</strong></td></tr>
+        <tr><td>位置型式</td><td>3.5、8.1.4、8.2</td><td>製造廠之標準，依其應用</td><td>屋內 / 屋外</td><td></td></tr>
+        <tr><td>防止固體外物侵入及防止水侵入之保護</td><td>8.2.2、8.2.3</td><td>屋內（封閉）：IP 2X；屋外：IP 23</td><td>於移除分接頭單元後：於連接位置 / 降低保護</td><td></td></tr>
+        <tr><td>外部機械撞擊(IK)</td><td>8.2.1、10.2.6</td><td>無</td><td>無</td><td></td></tr>
+        <tr><td>機械負載</td><td>5.6、8.1.101、10.2.101</td><td>正常</td><td>正常 / 重型</td><td></td></tr>
+        <tr><td>耐紫外線輻射（僅適用於屋外用 BTS，除非另有規定）</td><td>10.2.4</td><td>屋內</td><td>屋內 / 屋外</td><td></td></tr>
+        <tr><td>耐蝕</td><td>10.2.2</td><td>屋內 / 屋外</td><td>屋內 / 屋外</td><td></td></tr>
+        <tr><td>周圍空氣溫度－下限</td><td>7.1.1</td><td>屋內：–5 ℃；屋外：–25 ℃</td><td>無</td><td></td></tr>
+        <tr><td>周圍空氣溫度－上限</td><td>7.1.1</td><td>40 ℃</td><td>無</td><td></td></tr>
+        <tr><td>周圍空氣溫度－每日平均最高</td><td>7.1.1、9.2</td><td>35 ℃</td><td>無</td><td></td></tr>
+        <tr><td>最高相對濕度</td><td>7.1.2</td><td>屋內：40 ℃時為 50 %；屋外：25 ℃時為 100 %</td><td>無</td><td></td></tr>
+        <tr><td>（安裝環境之）污染等級</td><td>7.1.3</td><td>工業：3</td><td>1、2、3、4</td><td></td></tr>
+        <tr><td>海拔</td><td>7.1.4</td><td>≤ 2,000 m</td><td>無</td><td></td></tr>
+        <tr><td>EMC 環境</td><td>9.4、10.12、附錄J</td><td>A / B</td><td>A / B</td><td></td></tr>
+        <tr><td>電磁場</td><td>5.102</td><td>製造廠之標準</td><td>無</td><td></td></tr>
+        <tr><td>耐火焰延燒</td><td>5.6、9.101、10.101</td><td>否</td><td>是 / 否</td><td></td></tr>
+        <tr><td>建築物穿口之防火</td><td>5.6、9.102、10.102</td><td>0 min</td><td>0 min / 60 min / 90 min / 120 min / 180 min / 240 min</td><td></td></tr>
+        <tr><td>特殊使用條件（例：異常冷凝、重度污染、腐蝕環境、霉菌、小動物、強電場或強磁場、在高度敏感 IT 設備附近之安裝、爆炸危害、在火災條件下定義之性能、劇烈振動及衝擊、地震、特殊機械負載、高重複過電流）</td><td>7.2、8.5.4、9.3.3 表7</td><td>無特殊使用條件</td><td>無</td><td></td></tr>
+        <tr><td colspan="5"><strong>安裝法</strong></td></tr>
+        <tr><td>型式</td><td>3.3、5.6</td><td>製造廠之標準</td><td>水平 / 垂直；沿邊 / 平面</td><td></td></tr>
+        <tr><td>最大總尺度及總重量</td><td>5.6、6.2.1</td><td>製造廠之標準，依其應用</td><td>無</td><td></td></tr>
+        <tr><td>外部導體型式</td><td>8.8</td><td>製造廠之標準</td><td>電纜 / BTS</td><td></td></tr>
+        <tr><td>外部導體之方向</td><td>8.8</td><td>製造廠之標準</td><td>無</td><td></td></tr>
+        <tr><td>外部導體材料</td><td>8.8</td><td>銅</td><td>銅 / 鋁</td><td></td></tr>
+        <tr><td>外部相導體、截面積及終端</td><td>8.8</td><td>依標準範圍內之定義</td><td>無</td><td></td></tr>
+        <tr><td>外部 PE、N、PEN 導體截面積及終端</td><td>8.8</td><td>依標準範圍內之定義</td><td>無</td><td></td></tr>
+        <tr><td>特殊端子識別要求</td><td>8.8</td><td>製造廠之標準</td><td>無</td><td></td></tr>
+        <tr><td colspan="5"><strong>儲存及搬運</strong></td></tr>
+        <tr><td>運送單元之最大尺度及重量</td><td>6.2.2、10.2.5</td><td>製造廠之標準</td><td>無</td><td></td></tr>
+        <tr><td>運送法（例：堆高機、起重機）</td><td>6.2.2、8.1.6</td><td>製造廠之標準</td><td>無</td><td></td></tr>
+        <tr><td>與使用條件不同之環境條件</td><td>7.3</td><td>依使用條件</td><td>無</td><td></td></tr>
+        <tr><td>包裝細節</td><td>6.2.2</td><td>製造廠之標準</td><td>無</td><td></td></tr>
+        <tr><td colspan="5"><strong>操作配置</strong></td></tr>
+        <tr><td>外部出線電路之隔離</td><td>8.5.2</td><td>製造廠之標準</td><td>無</td><td></td></tr>
+        <tr><td colspan="5"><strong>維護及升級能力</strong></td></tr>
+        <tr><td>有關一般人員使用中之可觸及性的要求；當組裝品通電時，操作裝置或更換組件之要求</td><td>8.4.6.1</td><td>基本保護</td><td>無</td><td></td></tr>
+        <tr><td>與檢驗及類似操作用之可觸及性有關的要求</td><td>8.4.6.2.2</td><td>關於可觸及性，無要求</td><td>無</td><td></td></tr>
+        <tr><td>在獲授權人員使用中與維護時之可觸及性有關的要求</td><td>8.4.6.2.3</td><td>關於可觸及性，無要求</td><td>無</td><td></td></tr>
+        <tr><td>在獲授權人員使用中與擴充時之可觸及性有關的要求</td><td>8.4.6.2.4</td><td>關於可觸及性，無要求</td><td>無</td><td></td></tr>
+        <tr><td>功能性單元連接法</td><td>8.5.1、8.5.2</td><td>製造廠之標準</td><td>固定式 / 可切離式</td><td></td></tr>
+        <tr><td>維護或升級期間，防止與危險帶電內部零件直接接觸之保護（例：功能性單元、主匯流排、配電匯流排）</td><td>8.4</td><td>無要求</td><td>無</td><td></td></tr>
+        <tr><td colspan="5"><strong>電流承載能力</strong></td></tr>
+        <tr><td>BTS 之額定電流 I<sub>nA</sub> (A)</td><td>3.8.9.1、5.3、8.4.3.2.3、8.5.3、8.8、10.10.2、10.10.3、10.11.5</td><td>製造廠之標準，依其應用</td><td>無</td><td></td></tr>
+        <tr><td>顯著諧波電流</td><td>5.3.1、5.3.2</td><td>製造廠之標準，依其應用</td><td>無</td><td></td></tr>
+        <tr><td>相導體特性 / 電壓降</td><td>5.101、附錄BB</td><td>製造廠之標準</td><td>無</td><td></td></tr>
+        <tr><td>電路之額定電流 I<sub>nc</sub> (A)</td><td>5.3.2</td><td>製造廠之標準，依其應用</td><td>無</td><td></td></tr>
+        <tr><td>額定參差因數</td><td>5.4、10.10.2.3</td><td>對於 BTS 及具有單一出線電路之分接頭單元：1；對於具有多個出線電路之分接頭單元：參照表101</td><td>無</td><td></td></tr>
+        <tr><td>中性點導體與相導體之截面積比例：相導體在 16 mm<sup>2</sup> 以下</td><td>8.6.1</td><td>100 %</td><td>無</td><td></td></tr>
+        <tr><td>中性點導體與相導體之截面積比例：相導體大於 16 mm<sup>2</sup></td><td>8.6.1</td><td>50 %（最小 16 mm<sup>2</sup>）</td><td>無</td><td></td></tr>
+      </tbody>
+    </table>
+
+    <h4>三、表C.1 填寫教學：顧問帶著業主逐欄定案</h4>
+    <p>表C.1 的填寫邏輯是「<strong>先看預設配置夠不夠，不夠才在使用者要求欄加嚴或指定</strong>」。凡使用者要求欄留白者，即表示接受預設配置——這一點務必讓業主理解，因為留白本身就是一種合約決定。以下按分組說明填寫要領：</p>
+    <ul>
+      <li><strong>電力系統：</strong>接地系統必須與全廠接地設計一致（資料中心低壓多採 TN-S）；標稱電壓、額定頻率依當地系統（台灣常見 380/220 V、60 Hz）；暫態過電壓依進線位置選過電壓類別 III 或 IV——從變電室主配電盤饋出的列頭 Busway 通常屬類別 III，若靠近建物進線端則可能要求類別 IV。</li>
+      <li><strong>短路耐受能力：</strong>使用者應填入<strong>電源端子之預期短路電流 I<sub>cp</sub></strong>（由電力系統短路計算得之，單位 kA）；製造廠據此宣告 BTS 之額定短時耐受電流 I<sub>cw</sub>（如 25 kA/1 s）並依 10.11 查證。中性點與保護性電路之預期短路電流預設為相值之 60 %，若故障態分析顯示更高（如 IT 系統或特殊接地），應於使用者要求欄加註。進線 SCPD 是否內含於 BTS 進線單元，以及與上游保護之協調細節，是資料中心選擇性保護協調(selective coordination)審查的關鍵欄位。</li>
+      <li><strong>故障迴路特性：</strong>預設為「製造廠之標準」。對需要精算接地故障電流與保護協調的專案（如採剩餘電流保護或需核算自動切離電源時間者），應在使用者要求欄明定「製造廠應依附錄CC／附錄DD 提供故障迴路零序阻抗及電阻、電抗數據」，把參考附錄升格為交付要求。</li>
+      <li><strong>防電擊保護：</strong>基本保護為預設；故障保護須指定採「電源自動切離」或其他方式，此決定直接影響是否必須取得故障迴路阻抗數據（附錄CC／DD）。</li>
+      <li><strong>安裝環境：</strong>IP 等級是最常填寫也最常出錯的欄位——預設屋內 IP 2X 僅防手指接觸，資料中心機房若有消防灑水、加濕器或位於水冷管下方，應提高至 IP54 或以上；並注意「移除分接頭單元後」連接位置的保護等級選項。機械負載於長跨距吊裝或疊加電纜架時應指定「重型」。周圍溫度上限預設 40 ℃、日平均 35 ℃，機房熱通道上方實測常逾 40 ℃，此時必須在使用者要求欄填寫實際溫度，要求製造廠確認降額或加強設計——這直接連動溫升查證(10.10)的有效性。建築物穿口之防火，凡 Busway 貫穿樓板或防火區劃牆，應填寫所需時效（如 120 min），切勿留白接受 0 min 預設。</li>
+      <li><strong>安裝法：</strong>型式（水平／垂直、沿邊／平面）影響散熱與載流能力，平面(flatwise)與沿邊(edgewise)安裝之溫升特性不同，應依實際吊裝方式填寫。外部導體材料預設為銅；若採鋁導體須特別指定並確認終端處理。進線端之「外部導體型式」填「電纜」或「BTS」（與上游盤體間用 Busway 對接或電纜連接）。</li>
+      <li><strong>儲存及搬運、操作配置、維護及升級能力：</strong>資料中心最關切「組裝品通電時操作裝置或更換組件之要求」——熱插拔(hot-swap)分接箱的帶電插拔即屬此欄位，應明確要求並連動 8.4.6.1 基本保護之確認；功能性單元連接法選「可切離式」以支援不斷電擴充。</li>
+      <li><strong>電流承載能力：</strong>BTS 額定電流 I<sub>nA</sub> 為全槽幹線額定（如 400 A）；電路之額定電流 I<sub>nc</sub> 為各分接電路額定（如 60 A／100 A 分接箱）。資料中心 IT 負載富含諧波，應於「顯著諧波電流」欄填寫實測或預估之諧波含量，並檢討中性導體截面比例——預設 16 mm<sup>2</sup> 以下 100 %、大於 16 mm<sup>2</sup> 為 50 %；諧波顯著時實務上常要求<strong>中性導體 100 % 甚至 200 %</strong>，此為使用者要求欄的重要加嚴項目。「相導體特性／電壓降」欄應要求製造廠提供表102 之 R、X、Z 數據（依附錄BB 方法），作為附錄AA 電壓降計算之輸入。</li>
+    </ul>
+
+    <div class="card">
+      <h4>表C.1 填寫示範 — AI 算力中心列頭 Busway（教學示例，數值為示範用，非標準規定值）</h4>
+      <p>情境：某 AI 機房，白區(white space)熱通道上方架設饋送至列頭櫃之 400 A 匯流排槽，380/220 V、60 Hz、TN-S。摘錄關鍵欄位之「使用者要求」填寫示範如下：</p>
+      <table class="std-table">
+        <caption>表C.1 填寫示範（教學示例）— 欄位 → 示範值</caption>
+        <thead><tr><th>特性欄位</th><th>使用者要求（示範填寫）</th><th>填寫理由（顧問觀點）</th></tr></thead>
+        <tbody>
+          <tr><td>接地系統</td><td>TN-S</td><td>與資料中心低壓接地系統一致，PE、N 全程分離</td></tr>
+          <tr><td>標稱電壓 U<sub>n</sub></td><td>380 V（交流，3φ4W）</td><td>台灣資料中心常用電壓</td></tr>
+          <tr><td>暫態過電壓</td><td>過電壓類別 III</td><td>位於主配電盤下游之固定式配電</td></tr>
+          <tr><td>額定頻率 f<sub>n</sub></td><td>60 Hz</td><td>台灣電力系統</td></tr>
+          <tr><td>於電源端子之預期短路電流 I<sub>cp</sub></td><td>25 kA</td><td>依短路計算；據此要求 BTS 之 I<sub>cw</sub> ≥ 25 kA/1 s</td></tr>
+          <tr><td>進線 SCPD</td><td>是（內含於進線單元之斷路器）</td><td>列頭 Busway 上游保護一體化，便於協調</td></tr>
+          <tr><td>故障迴路特性</td><td>製造廠應依附錄CC／DD 提供故障迴路零序阻抗及 R、X 數據</td><td>供接地故障保護協調與自動切離時間核算</td></tr>
+          <tr><td>故障保護</td><td>電源自動切離</td><td>TN 系統標準做法，連動故障迴路阻抗需求</td></tr>
+          <tr><td>位置型式／IP</td><td>屋內；IP54</td><td>機房設消防灑水且鄰近冰水配管，高於預設 IP 2X</td></tr>
+          <tr><td>機械負載</td><td>正常</td><td>標準吊裝跨距，無外加電纜荷重</td></tr>
+          <tr><td>周圍空氣溫度－上限／日平均</td><td>45 ℃／40 ℃</td><td>熱通道上方實測高於標準預設（40／35 ℃），要求確認載流降額</td></tr>
+          <tr><td>建築物穿口之防火</td><td>120 min</td><td>Busway 貫穿機房防火區劃樓板，依 9.102／10.102 查證</td></tr>
+          <tr><td>耐火焰延燒</td><td>是</td><td>白區上方佈線密度高，要求 10.101 查證</td></tr>
+          <tr><td>特殊使用條件</td><td>在高度敏感 IT 設備附近之安裝；高重複過電流（GPU 叢集負載波動）</td><td>觸發 7.2／9.3.3 之協議事項，含電磁場(5.102)宣告</td></tr>
+          <tr><td>型式（安裝法）</td><td>水平、平面</td><td>配合機櫃上方吊掛與分接箱朝下配置</td></tr>
+          <tr><td>外部導體材料／型式</td><td>銅；進線以 BTS 對接上游盤體</td><td>縮短進線路徑、減少電纜轉接箱</td></tr>
+          <tr><td>維護中可觸及性（8.4.6.1）</td><td>通電狀態下得熱插拔分接箱，並維持基本保護</td><td>AI 機房不停機擴充之核心需求</td></tr>
+          <tr><td>功能性單元連接法</td><td>可切離式</td><td>分接單元可帶電抽換</td></tr>
+          <tr><td>BTS 之額定電流 I<sub>nA</sub></td><td>400 A</td><td>滿足單列機櫃（含成長）負載</td></tr>
+          <tr><td>電路之額定電流 I<sub>nc</sub></td><td>分接箱 60 A（每機櫃雙路各一）</td><td>A/B 路冗餘配置</td></tr>
+          <tr><td>顯著諧波電流</td><td>有（IT 負載）；中性導體截面比例要求 100 %</td><td>預設 50 % 不足承受諧波疊加之 N 相電流</td></tr>
+          <tr><td>相導體特性／電壓降</td><td>提供表102 R、X、Z（Ω/m）及不同功率因數之電壓降表</td><td>供附錄AA 電壓降核算與設計審查</td></tr>
+          <tr><td>EMC 環境</td><td>A</td><td>工業／機房環境，依 10.12 查證（示範值，仍應依專案 EMC 評估確認）</td></tr>
+        </tbody>
+      </table>
+      <p><strong>填寫心法：</strong>每一列「使用者要求」都應能回答「為什麼需要」——凡寫不出理由的加嚴，是成本浪費；凡有理由卻留白接受預設的，是驗收風險。</p>
+    </div>
+
+    <h4>四、附錄D 設計查證（表D.1）</h4>
+    <p>附錄D「設計查證」同為參考附錄，其表D.1 將第10節「設計查證」之各項試驗與查證規定，整理為 15 個項次之清單，並標示每一特性<strong>可取得之查證選項</strong>：試驗、與基準設計之比較、評估，三者中何者「是」（可採用）、何者「否」（不可採用）。此表是 BTS 型式查證文件審查的<strong>總目錄</strong>——顧問可據此逐項向組裝品製造廠索取證據，並檢查其查證路徑是否符合標準允許之選項。以下依原文（PDF 第32頁）重建：</p>
+
+    <table class="std-table">
+      <caption>表D.1 — 設計查證（依 CNS 61439-6 附錄D 重建）</caption>
+      <thead>
+        <tr><th>項次</th><th>須查證之特性</th><th>節次</th><th>試驗</th><th>與基準設計之比較</th><th>評估</th></tr>
+      </thead>
+      <tbody>
+        <tr><td rowspan="9">1</td><td>材料及零件之強度：耐蝕</td><td>10.2.2</td><td>是</td><td>否</td><td>否</td></tr>
+        <tr><td>絕緣材料之特性：熱穩定性</td><td>10.2.3.1</td><td>是</td><td>否</td><td>否</td></tr>
+        <tr><td>絕緣材料之特性：耐受因內部電效應產生之異常熱及火</td><td>10.2.3.2</td><td>是</td><td>否</td><td>是</td></tr>
+        <tr><td>絕緣材料之特性：耐紫外線(UV)輻射</td><td>10.2.4</td><td>是</td><td>否</td><td>是</td></tr>
+        <tr><td>起重</td><td>10.2.5</td><td>是</td><td>否</td><td>否</td></tr>
+        <tr><td>機械撞擊</td><td>10.2.6</td><td>是</td><td>否</td><td>否</td></tr>
+        <tr><td>標示</td><td>10.2.7</td><td>是</td><td>否</td><td>否</td></tr>
+        <tr><td>耐受機械負載之能力</td><td>10.2.101</td><td>是</td><td>否</td><td>否</td></tr>
+        <tr><td>熱循環試驗</td><td>10.2.102</td><td>是</td><td>否</td><td>否</td></tr>
+        <tr><td>2</td><td>箱體之保護等級</td><td>10.3</td><td>是</td><td>否</td><td>是</td></tr>
+        <tr><td>3</td><td>空間距離</td><td>10.4</td><td>是</td><td>否</td><td>否</td></tr>
+        <tr><td>4</td><td>沿面距離</td><td>10.4</td><td>是</td><td>否</td><td>否</td></tr>
+        <tr><td rowspan="2">5</td><td>防電擊之保護及保護性電路之完整性：於 BTS 之外露導電零件與保護性電路之間的有效連續性</td><td>10.5.2</td><td>是</td><td>否</td><td>否</td></tr>
+        <tr><td>保護性電路之短路耐受強度</td><td>10.5.3</td><td>是</td><td>是</td><td>否</td></tr>
+        <tr><td>6</td><td>開關操作裝置與組件之結合</td><td>10.6</td><td>否</td><td>否</td><td>是</td></tr>
+        <tr><td>7</td><td>內部電路及連接</td><td>10.7</td><td>否</td><td>否</td><td>是</td></tr>
+        <tr><td>8</td><td>外部導體用之端子</td><td>10.8</td><td>否</td><td>否</td><td>是</td></tr>
+        <tr><td rowspan="2">9</td><td>介電特性：商頻耐電壓</td><td>10.9.2</td><td>是</td><td>否</td><td>否</td></tr>
+        <tr><td>介電特性：衝擊耐電壓</td><td>10.9.3</td><td>是</td><td>否</td><td>是</td></tr>
+        <tr><td>10</td><td>溫升限度</td><td>10.10</td><td>是</td><td>是</td><td>否</td></tr>
+        <tr><td>11</td><td>短路耐受強度</td><td>10.11</td><td>是</td><td>是</td><td>否</td></tr>
+        <tr><td>12</td><td>電磁相容性(EMC)</td><td>10.12</td><td>是</td><td>否</td><td>是</td></tr>
+        <tr><td>13</td><td>機械操作</td><td>10.13</td><td>是</td><td>否</td><td>否</td></tr>
+        <tr><td>14</td><td>耐火焰延燒</td><td>10.101</td><td>是</td><td>否</td><td>否</td></tr>
+        <tr><td>15</td><td>建築物穿口之防火</td><td>10.102</td><td>是</td><td>否</td><td>否</td></tr>
+      </tbody>
+    </table>
+
+    <p><strong>表D.1 的解讀與用法：</strong></p>
+    <ul>
+      <li><strong>與第10節的對應：</strong>項次 1～15 完整覆蓋 10.2～10.13 及 BTS 專屬之 10.2.101（機械負載）、10.2.102（熱循環）、10.101（耐火焰延燒）、10.102（建築物穿口防火）——後四者正是 CNS 61439-6 相對於一般組裝品標準追加的查證項目，反映 Busway「長尺度、跨樓板、可熱插拔」的產品特性。</li>
+      <li><strong>查證選項的邏輯：</strong>多數特性僅允許「試驗」一途（是/否/否）；<strong>溫升限度(10.10)與短路耐受強度(10.11)、保護性電路短路耐受(10.5.3)</strong>額外允許「與基準設計之比較」——即以已通過試驗的基準設計(reference design)外推，這是系列產品免於逐規格重複試驗的合法路徑，但顧問應審查其外推規則與基準試驗報告之關聯性；<strong>開關裝置結合、內部電路、外部端子、EMC、衝擊耐電壓</strong>等項允許以「評估」查證。</li>
+      <li><strong>作為查驗查檢表：</strong>將表D.1 轉化為專案「設計查證文件查檢表」，逐項登錄：查證方式、報告編號、試驗機構、基準設計型號、結論。出廠查驗(FAT 前置審查)時先核文件、後看實物；缺漏之項即為查驗缺失。</li>
+    </ul>
+    <div class="callout warn">
+      <strong>風險提示：</strong>「與基準設計之比較」不是製造廠說了算。以溫升為例，若業主在表C.1 填了 45 ℃ 環境上限，而製造廠的溫升查證係引用 35 ℃ 基準試驗之外推，顧問應要求提出差異分析，必要時要求補試——這正是表C.1 與表D.1 連動使用之處。
+    </div>
+
+    <h4>五、附錄AA 系統之電壓降</h4>
+    <p>附錄AA（參考）規定 BTS 電壓降之計算方法。BTS 之電壓降可使用下列公式計算：</p>
+    <pre>u = √3 × k × I<sub>B</sub> × L × (R cosφ + X sinφ)</pre>
+    <p>式中：</p>
+    <ul>
+      <li><strong>u</strong>：系統之複合電壓降(V)。</li>
+      <li><strong>R 及 X</strong>：5.101 規定之平均電阻及電抗(Ω/m)——即表102 之相導體特性，由製造廠依附錄BB 決定並宣告。</li>
+      <li><strong>I<sub>B</sub></strong>：所考量之電路的電流(A)。</li>
+      <li><strong>L</strong>：所考量之系統的長度(m)。</li>
+      <li><strong>cosφ</strong>：所考量之負載功率因數。</li>
+      <li><strong>k</strong>：負載分布因數，計算如下：
+        <ul>
+          <li>計算 BT 通道末端之電壓降時，k 等於：<strong>1</strong>（若負載集中在 BT 通道末端）；或 <strong>(n＋1)/2n</strong>（若負載均勻分布在 n 個分支之間）。</li>
+          <li>對於沿 BT 通道均勻分布之負載，計算距離 BT 通道原點 d 之分支原點處的電壓降時，k 等於 <strong>(2n＋1 − n·d/L)/2n</strong>。</li>
+        </ul>
+      </li>
+    </ul>
+    <p>原製造廠可提供不同功率因數之<strong>預先計算的電壓降表（V/A 及 V/m）</strong>，以便於進行基本計算。採購時於表C.1「相導體特性／電壓降」欄要求提供此表，可省去逐案重算。</p>
+    <p><strong>k 因數的工程意義：</strong>Busway 與電纜最大的差異在於負載沿線分布——列頭 Busway 每隔一個機櫃距離就經分接箱取電，電流沿槽體逐段遞減。負載集中末端（k＝1）是最保守情形；負載均勻分布於 n 個分支時 k＝(n＋1)/2n，n 越大 k 趨近 0.5，電壓降幾乎減半。若直接套用電纜式「滿載電流 × 全長」的算法，將高估近一倍的電壓降，導致導體過度放大、成本浪費。</p>
+
+    <div class="card">
+      <h4>電壓降計算示範 — 資料中心列頭 Busway（教學示例，數值為示範用）</h4>
+      <p>情境：400 A 列頭 Busway，380 V 三相，長度 L＝60 m，運轉電流 I<sub>B</sub>＝320 A，負載均勻分布於 n＝10 個分接箱，負載功率因數 cosφ＝0.95（sinφ＝0.312）。製造廠宣告之相導體特性（教學示例值）：R＝0.099 mΩ/m、X＝0.037 mΩ/m（於額定電流及 35 ℃周圍溫度下之平均值）。</p>
+      <pre>步驟 1　負載分布因數：k = (n＋1)/2n = (10＋1)/(2×10) = 0.55
+步驟 2　阻抗項：R cosφ＋X sinφ = 0.099×0.95＋0.037×0.312
+        = 0.0941＋0.0116 = 0.1056 mΩ/m
+步驟 3　代入公式：u = √3 × k × I<sub>B</sub> × L × (R cosφ＋X sinφ)
+        = 1.732 × 0.55 × 320 × 60 × 0.1056×10<sup>-3</sup>
+        ≈ 1.93 V
+步驟 4　百分比：u% = 1.93 / 380 × 100 % ≈ 0.51 %</pre>
+      <p><strong>結果判讀：</strong>末端電壓降約 0.51 %，遠低於常見設計準則（饋線 ≤ 3 %）。若誤以負載集中末端（k＝1）計算，u ≈ 3.51 V（0.92 %）——雖仍合格，但保守近一倍；若跨距更長或電流更大，此差距即可能誤導選型。設計審查時應確認製造廠之 R、X 係對應<strong>操作溫度下之平均值</strong>（非 20 ℃冷態值），且功率因數應採實際 IT 負載特性（現代伺服器電源功因修正後 cosφ 常達 0.95 以上，但諧波分量另須以顯著諧波電流欄處理）。</p>
+    </div>
+
+    <h4>六、附錄BB 相導體特性</h4>
+    <p>附錄BB（參考）規定以實測求得表102「相導體特性」（R、X、Z 及 R<sub>20</sub>、Z<sub>20</sub>）之方法——這是 5.101 要求製造廠宣告數據的<strong>來源方法</strong>，也是附錄AA 電壓降計算與故障電流計算的輸入基礎。</p>
+    <figure class="fig-box">
+      <img src="assets/p34_fig1.png" alt="圖BB.1 決定相導體特性之量測電路：三相電源經電流表與兩只瓦特計 W1、W2 供電，三只電壓表跨接相間，試驗樣品輸出端三相導體短路形成星點" loading="lazy">
+      <figcaption>圖BB.1 — 決定相導體特性之量測電路（CNS 61439-6 原圖）。試驗樣品輸出端（星點）將所有相導體短路；以電流表量測各相電流、電壓表量測相對相電壓降、瓦特計 W1／W2 量測總有效功率，L 為電壓表引線跨距。</figcaption>
+    </figure>
+    <p><strong>量測配置與程序（依原文）：</strong></p>
+    <ul>
+      <li>在試驗樣品（星點）之<strong>輸出端，使所有相導體短路</strong>，形成三相短路迴路。</li>
+      <li><strong>記錄溫升試驗期間之量測值</strong>，或使用相同配置及條件（參照 10.10.2），包括<strong>相電流儘可能接近額定電流</strong>——意即此量測可直接借用 10.10 溫升試驗的既有配置同步完成，不需另行架設。</li>
+      <li>依圖BB.1 量測：L（從輸入端連接之電壓表引線至輸出端相導體連接點之 BT 通道長度，m）、θ（周圍空氣溫度，℃）、Δθ（相導體之平均穩定溫升，℃）、V<sub>12</sub>、V<sub>23</sub>、V<sub>31</sub>（均方根相對相電壓降，V）、I<sub>1</sub>、I<sub>2</sub>、I<sub>3</sub>（均方根電流，A）、P（由功率表 W<sub>1</sub> 及 W<sub>2</sub> 決定之總有效功率，W）。</li>
+      <li>原文備考 1：總有效功率亦可由<strong>3 個功率表</strong>決定。圖中 W<sub>1</sub>、W<sub>2</sub> 即三相三線制之「二瓦特計法」配置。</li>
+    </ul>
+    <p><strong>計算式（依原文）：</strong>先計算平均均方根電流及相對相電壓降：</p>
+    <pre>V = (V<sub>12</sub>＋V<sub>23</sub>＋V<sub>31</sub>) / 3
+I = (I<sub>1</sub>＋I<sub>2</sub>＋I<sub>3</sub>) / 3</pre>
+    <p>在周圍空氣溫度 θ 下，計算每 m 長度之平均阻抗 Z<sub>θ</sub> 及電阻 R<sub>θ</sub>，以及與溫度無關之每個相導體的電抗 X：</p>
+    <pre>Z<sub>θ</sub> = V / (√3 × I × L)
+R<sub>θ</sub> = P / (3 × I<sup>2</sup> × L)
+X = (Z<sub>θ</sub><sup>2</sup> − R<sub>θ</sub><sup>2</sup>)<sup>1/2</sup></pre>
+    <p>上式中 V 除以 √3 係將相對相電壓降換算為相電壓基準；R<sub>θ</sub> 由總有效功率（三相銅損）反算，X 由阻抗三角形求得。原文備考 2 與備考 3 提供兩種替代法：可<strong>逐相</strong>量測相對星形點電壓降 V<sub>x</sub> 及功率 P<sub>x</sub>，以 Z<sub>θx</sub>＝V<sub>x</sub>/(I<sub>x</sub>L)、R<sub>θx</sub>＝P<sub>x</sub>/(I<sub>x</sub><sup>2</sup>L)、X<sub>x</sub>＝(Z<sub>θx</sub><sup>2</sup>−R<sub>θx</sub><sup>2</sup>)<sup>1/2</sup> 計算後取平均；或量測每相電壓與電流間之<strong>相位差 φ<sub>x</sub></strong>，以 R<sub>θx</sub>＝Z<sub>x</sub>cosφ<sub>x</sub>/L、X<sub>x</sub>＝Z<sub>x</sub>sinφ<sub>x</sub>/L 取代功率量測。</p>
+    <p><strong>溫度修正（依原文）：</strong>計算 R<sub>20</sub> 及 Z<sub>(1)20</sub>（BTS 未操作且導體溫度為＋20 ℃時）以及 R 及 Z<sub>(1)</sub>（BTS 在 I<sub>nc</sub> 及周圍空氣溫度＋35 ℃下操作時）：</p>
+    <pre>R<sub>20</sub> = R<sub>θ</sub> / [1＋0.004(θ＋Δθ − 20)]
+R = R<sub>20</sub>[1＋0.004(35＋Δθ − 20)]
+  = R<sub>θ</sub> × [1＋0.004(35＋Δθ − 20)] / [1＋0.004(θ＋Δθ − 20)]
+Z<sub>(1)20</sub> = Z<sub>(2)20</sub> = Z<sub>20</sub> = (R<sub>20</sub><sup>2</sup>＋X<sup>2</sup>)<sup>1/2</sup>
+Z<sub>(1)</sub> = Z<sub>(2)</sub> = Z = (R<sup>2</sup>＋X<sup>2</sup>)<sup>1/2</sup></pre>
+    <p>式中 0.004 為導體電阻之溫度係數(1/℃)之標準取值，Δθ 為溫升試驗量得之平均穩定溫升。原文備考 4 註明：Z<sub>(1)</sub>、Z<sub>(1)20</sub>、Z<sub>(2)</sub>、Z<sub>(2)20</sub> 為 BTS 之<strong>正相序阻抗及負相序阻抗</strong>。這兩組值的用途不同：R、Z（35 ℃＋Δθ 熱態）用於電壓降與<strong>最小故障電流</strong>核算（故障電流在最高阻抗值時達最低值）；R<sub>20</sub>、Z<sub>20</sub>（冷態）用於<strong>最大故障電流</strong>核算（短路瞬間導體尚處低溫）。顧問審查時應確認製造廠兩組數據齊備。</p>
+
+    <h4>七、附錄CC 故障迴路零序阻抗</h4>
+    <p>附錄CC（參考）規定故障迴路<strong>零序阻抗</strong>之量測方法，其數據用於以<strong>對稱分量法</strong>計算接地故障電流（參照表104），是接地故障保護協調——尤其採剩餘電流裝置(RCD)或需核算 TN 系統自動切離電源時間——的關鍵輸入。</p>
+    <figure class="fig-box">
+      <img src="assets/p36_fig1.png" alt="圖CC.1 決定故障迴路零序阻抗之量測電路：三相導體並聯後依次連接至 N、PEN、PE 導體，以單一瓦特計、電流表、電壓表量測" loading="lazy">
+      <figcaption>圖CC.1 — 決定故障迴路零序阻抗之量測電路（CNS 61439-6 原圖）。試驗樣品之並聯相導體（L1/L2/L3 兩端各自連接在一起）依次連接至 N、PE 及 PEN 導體，構成「相對中性線／相對 PEN／相對 PE」之故障迴路。</figcaption>
+    </figure>
+    <p><strong>量測配置（依原文）：</strong>依次將試驗樣品之<strong>並聯相導體連接至 N、PE 及 PEN 導體</strong>。除「相電流可小於額定電流 I<sub>nc</sub>」及／或「僅在記錄量測值所必要之期間施加」外，使用與 BT 通道溫升試驗相同之配置（參照 10.10.2）。當<strong>箱體預期作為保護性導體之一部分</strong>使用時，依原製造廠說明書將其如同正常使用情況<strong>搭接至 PE/PEN</strong>；當箱體預期作為<strong>僅有之保護性導體</strong>（無個別 PE/PEN 導體）時，在相導體與<strong>箱體 PE 端子</strong>之間量測。量測參數為：L（從輸入端相導體連接在一起處之電壓表引線，至輸出端相導體亦連接在一起處之 BT 通道長度，m）、θ（周圍空氣溫度，℃；備考 2 註明初始導體溫度等於周圍空氣溫度，量測時間內溫升視為可忽略）、V<sub>x</sub>（故障迴路之均方根電壓降，V）、I<sub>x</sub>（總均方根電流，A）、P<sub>x</sub>（有效功率，W）；x 取決於故障迴路之型式：<strong>相對中性線、相對 PEN、相對 PE</strong>。備考 3：亦可量測電壓與電流間之相位差 φ<sub>x</sub>，以 P<sub>x</sub>＝V<sub>x</sub>I<sub>x</sub>cosφ<sub>x</sub> 取代功率表。</p>
+    <p><strong>計算式（依原文）：</strong>在周圍空氣溫度 θ 下，計算每 m 長度之故障迴路零序阻抗 Z<sub>(0)bθx</sub>、電阻 R<sub>(0)bθx</sub> 及與溫度無關之電抗 X<sub>(0)bx</sub>：</p>
+    <pre>Z<sub>(0)bθx</sub> = V<sub>x</sub> / [(I<sub>x</sub>/3) × L] = 3V<sub>x</sub> / (I<sub>x</sub>L)
+R<sub>(0)bθx</sub> = P<sub>x</sub> / [(I<sub>x</sub>/3)<sup>2</sup> × L] = 3P<sub>x</sub> / (I<sub>x</sub><sup>2</sup>L)
+X<sub>(0)bx</sub> = (Z<sub>(0)bθx</sub><sup>2</sup> − R<sub>(0)bθx</sub><sup>2</sup>)<sup>1/2</sup></pre>
+    <p>式中以 I<sub>x</sub>/3 計之，係因三相導體並聯後電流均分（每相 I<sub>x</sub>/3），而零序阻抗係以「相導體＋返回路徑」之每相基準表達。溫度修正：</p>
+    <pre>R<sub>(0)b20x</sub> = R<sub>(0)bθx</sub> / [1＋0.004(θ − 20)]
+R<sub>(0)bx</sub> = R<sub>(0)b20x</sub>[1＋0.004(35＋Δθ − 20)]
+        = R<sub>(0)bθx</sub> × [1＋0.004(35＋Δθ − 20)] / [1＋0.004(θ − 20)]
+Z<sub>(0)b20x</sub> = (R<sub>(0)b20x</sub><sup>2</sup>＋X<sub>(0)bx</sub><sup>2</sup>)<sup>1/2</sup>
+Z<sub>(0)bx</sub> = (R<sub>(0)bx</sub><sup>2</sup>＋X<sub>(0)bx</sub><sup>2</sup>)<sup>1/2</sup></pre>
+    <p>式中 Δθ 為在附錄BB 中或在溫升試驗期間所量測之相導體的平均穩定溫升（注意：零序量測本身採短時通電，初始溫度即為 θ，故修正式不含量測期間之溫升）。<strong>用途定位：</strong>表102 之 Z 及 Z<sub>20</sub> 與表103 之故障迴路零序阻抗（相導體及返回路徑之總零序阻抗），係用於依<strong>對稱分量法</strong>（參照 IEC 60909-0）計算接地故障電流。原文備考 1 特別警示：<strong>故障條件下之電阻、電抗及阻抗可與額定電流下之值完全不同</strong>，特別是當箱體作為保護性導體或其一部分使用時——故障電流在箱體鋼材中的分布、集膚效應與接合點電阻，均不同於正常載流狀態。在此情況中，原製造廠宜決定故障條件之<strong>代表性電流值及持續期間</strong>，以防止溫升過高。</p>
+
+    <h4>八、附錄DD 故障迴路電阻及電抗</h4>
+    <p>附錄DD（參考）與附錄CC 互補：CC 求得<strong>零序阻抗 Z<sub>(0)</sub></strong>（供對稱分量法），DD 則逐迴路求得故障迴路之<strong>電阻 R<sub>b</sub> 與電抗 X<sub>b</sub></strong>（供阻抗法），兩者對應表104 所列之兩種故障電流計算方法。</p>
+    <figure class="fig-box">
+      <img src="assets/p38_fig1.png" alt="圖DD.1 決定故障迴路電阻及電抗之量測電路：每個相導體依次連接至每個其他導體（相、N、PEN、PE）" loading="lazy">
+      <figcaption>圖DD.1 — 決定故障迴路電阻及電抗之量測電路（CNS 61439-6 原圖）。依次將每個相導體連接至每個其他導體（相、N、PEN、PE），逐迴路量測 V<sub>xx</sub>、I<sub>x</sub>、P<sub>x</sub>。</figcaption>
+    </figure>
+    <p><strong>量測配置（依原文）：</strong>依次將<strong>每個相導體連接至每個其他導體</strong>。除電流可小於 I<sub>nc</sub> 及／或僅在記錄量測值所必要之期間施加外，使用與 BT 通道溫升試驗相同之配置（參照 10.10.2）；箱體作為保護性導體時之搭接與量測位置規定，同附錄CC。量測：L（從連接在輸入端之電壓表引線，至每個相導體連續連接至輸出端之每個其他導體的點，m）、θ（周圍空氣溫度，℃，備考 2 同 CC）、V<sub>xx</sub>（故障迴路之均方根電壓降，V）、I<sub>x</sub>（均方根電流，A）、P<sub>x</sub>（有效功率，W）。xx 取決於故障迴路耦合之型式（參照圖DD.1）：<strong>相對相</strong>（ph1 對 ph2、ph2 對 ph3、ph3 對 ph1）、<strong>相對中性線</strong>（ph1 對 N、ph2 對 N、ph3 對 N）、<strong>相對 PEN</strong>（ph1 對 PEN、ph2 對 PEN、ph3 對 PEN）、<strong>相對 PE</strong>（ph1 對 PE、ph2 對 PE、ph3 對 PE）。備考 3：可以相位差 φ<sub>xx</sub> 之量測取代功率表（P<sub>xx</sub>＝V<sub>xx</sub>I<sub>xx</sub>cosφ<sub>xx</sub>）。</p>
+    <p><strong>計算式（依原文）：</strong></p>
+    <pre>Z<sub>bθxx</sub> = V<sub>xx</sub> / (I<sub>xx</sub>L)
+R<sub>bθxx</sub> = P<sub>xx</sub> / (I<sub>xx</sub><sup>2</sup>L)
+X<sub>bxx</sub> = (Z<sub>bθxx</sub><sup>2</sup> − R<sub>bθxx</sub><sup>2</sup>)<sup>1/2</sup></pre>
+    <p>再計算相對應之<strong>平均故障迴路值</strong>：</p>
+    <pre>相對相：R<sub>bθph-ph</sub> = 1/3 (R<sub>bθph1ph2</sub>＋R<sub>bθph2ph3</sub>＋R<sub>bθph3ph1</sub>)
+        X<sub>bph-ph</sub> = 1/3 (X<sub>bph1ph2</sub>＋X<sub>bph2ph3</sub>＋X<sub>bph3ph1</sub>)
+相對 x：R<sub>bθph-x</sub> = 1/3 (R<sub>bθph1x</sub>＋R<sub>bθph2x</sub>＋R<sub>bθph3x</sub>)
+        X<sub>bph-x</sub> = 1/3 (X<sub>bph1x</sub>＋X<sub>bph2x</sub>＋X<sub>bph3x</sub>)</pre>
+    <p>溫度修正：R<sub>b20xx</sub>＝R<sub>bθxx</sub>/[1＋0.004(θ−20)]；R<sub>bxx</sub>＝R<sub>b20xx</sub>[1＋0.004(35＋Δθ−20)]，Δθ 定義同附錄CC。</p>
+    <p><strong>CC 與 DD 之差異與應用時機：</strong></p>
+    <ul>
+      <li><strong>接法不同：</strong>CC 將三相導體<strong>並聯</strong>後對 N／PE／PEN 量測（模擬零序電流三相同相位之分流路徑）；DD 以<strong>單相逐一</strong>對其他導體（含相對相）量測，共 12 種耦合迴路取平均。</li>
+      <li><strong>輸出不同：</strong>CC 輸出零序阻抗 Z<sub>(0)b</sub>（含 Z<sub>(0)b20</sub>），供對稱分量法；DD 輸出故障迴路 R<sub>b</sub>、X<sub>b</sub>（含 R<sub>b20</sub>），供阻抗法。5.101 指出：表102 之 R<sub>20</sub>、X 與表103 之故障迴路電阻及電抗，用於<strong>阻抗法</strong>計算故障電流；表102 之 Z、Z<sub>20</sub> 與表103 之故障迴路零序阻抗，用於<strong>對稱分量法</strong>。</li>
+      <li><strong>應用時機：</strong>保護協調採賠償分析軟體（多內建對稱分量法，依 IEC 60909-0）者，向製造廠索取附錄CC 數據；以回路阻抗相加核算保護器跳脫（如 TN 系統 Z<sub>s</sub>×I<sub>a</sub>≤U<sub>0</sub> 之驗算）者，索取附錄DD 數據。大型資料中心兩者皆需要：對稱分量法算故障電流量級，阻抗法驗算最遠端分接點之自動切離。</li>
+    </ul>
+
+    <h4>九、附錄EE BTS 附近磁場之決定</h4>
+    <p>附錄EE（參考）規定 BTS 附近磁場之量測方法，對應 5.102「電磁場」之宣告要求：BT 通道附近之商頻磁場強度可由 BTS 製造廠規定（備考：磁場為距離之<strong>快速遞減函數</strong>）。原文規定「<strong>若有規定時</strong>，宜依下述量測磁場」——亦即量測義務來自使用者在表C.1「電磁場」欄之指定。</p>
+    <figure class="fig-box">
+      <img src="assets/p40_fig1.png" alt="圖EE.1 磁場量測配置：1,200×2,000 mm 量測面板，沿 A(+y)、B、C(x)、D、E(−y) 五個量測軸佈置量測點，量測塊容納磁場量規，高斯計量測 Bx、By 分量" loading="lazy">
+      <figcaption>圖EE.1 — 磁場量測配置（CNS 61439-6 原圖）。1,200 mm × 2,000 mm 量測面板（合板或塑膠製）上沿 5 個量測軸 A(＋y)、B、C(x)、D、E(−y) 預設量測位置；量測塊（塑膠製，圖中 1、2）容納 1 或 2 個磁場量規，高斯計量測磁場向量成分 B<sub>x</sub>、B<sub>y</sub>。</figcaption>
+    </figure>
+    <p><strong>量測方法（依原文）：</strong></p>
+    <ul>
+      <li>將長度<strong>至少 3 m</strong> 之直形 BTU 通道沿 z 軸<strong>水平支撐</strong>。</li>
+      <li>將量測塊（由塑膠材料製成）放置並固定在沿 <strong>5 個量測軸 A(＋y)、B、C(x)、D、E(−y)</strong> 之面板（由合板或塑膠材料製成）上預設的位置——面板與量測塊皆採非金屬材料，避免擾動待測磁場。</li>
+      <li>此量測塊可容納 <strong>1 個或 2 個磁場量規</strong>，其方向與參考軸 x 或 y 呈恆定之垂直位置，分別擷取 B<sub>x</sub>、B<sub>y</sub> 兩正交分量。</li>
+      <li>對於面板之每個預設位置，以<strong>高斯計</strong>量測磁場向量成分。</li>
+      <li><strong>依 IEC 61786 進行所有量測</strong>（磁場量測儀器與程序之標準）。</li>
+      <li>局部磁場之模數公式：<strong>B＝(B<sub>x</sub><sup>2</sup>＋B<sub>y</sub><sup>2</sup>)<sup>1/2</sup>（T）</strong>。</li>
+    </ul>
+    <p><strong>量測結果之表達：</strong>依上式將各量測軸、各預設位置之 B<sub>x</sub>、B<sub>y</sub> 合成為模數 B，即可繪出 BTS 周圍磁場強度隨位置（距離）之分布——由於磁場為距離之快速遞減函數，結果常以各量測軸之 B 值分布（或等磁場線）表達，供使用者評估敏感設備之安全距離。1,200×2,000 mm 之量測框涵蓋 BTU 周圍近場區域，五軸配置同時捕捉正上方（＋y）、側向（x）、正下方（−y）與斜向（B、D 軸）之分布。</p>
+    <p><strong>為何資料中心與敏感設備在意：</strong>早期關注焦點是 CRT 螢幕受磁場干擾產生畫面晃動（CRT 現已少見），但商頻磁場對<strong>精密量測儀器（電子顯微鏡、質譜儀）、醫療設備（MRI 周邊、生理監測）、半導體製程機台及 EMC 敏感之 IT 設備</strong>仍具實質意義。Busway 載流數百至數千安培，近旁磁場遠高於一般電纜配線；表C.1 特殊使用條件中亦明列「強電場或強磁場、在高度敏感 IT 設備附近之安裝」。實務上，緊密排列之導體配置與鋼質箱體對磁場有一定遮蔽／抵銷效果，製造廠依附錄EE 提供之量測數據，即是評估「Busway 與敏感設備間距」或「是否需改用遮蔽設計」之依據。</p>
+
+    <h4>十、參考資料（依原文）</h4>
+    <p>除 CNS 15783-1 之參考資料適用於本標準外，追加下列參考資料：</p>
+    <ul>
+      <li>[1] CNS 61439（系列）低電壓開關裝置及控制裝置組裝品（IEC 61439）</li>
+      <li>[2] IEC 60570:2003 Electrical supply track systems for luminaires</li>
+      <li>[3] IEC 60909-0:2001 Short-circuit currents in three-phase a.c. systems − Part 0: Calculation of currents</li>
+      <li>[4] IEC 61084 (all parts) Cable trunking systems and cable ducting systems for electrical installations</li>
+      <li>[5] IEC 61534 (all parts) Powertrack systems</li>
+    </ul>
+    <p>本標準之相對應國際標準：<strong>IEC 61439-6:2012</strong> Low-voltage switchgear and controlgear assemblies − Part 6: Busbar trunking systems (busways)。此外，附錄CC／DD 之對稱分量法引用 IEC 60909-0（即上列 [3]），附錄EE 之量測程序引用 <strong>IEC 61786</strong>，表C.1 之防電擊保護引用 <strong>IEC 60364-4-41</strong>——此三件雖未列入參考資料清單，但為各附錄方法之直接依據，設計審查時應一併備妥。</p>
+  </div>
+
+  <div class="block">
+    <h3>■ 顧問工作重點</h3>
+    <div class="grid-2">
+      <div class="card">
+        <h4>規範表＝採購與查驗之合約介面</h4>
+        <ul>
+          <li><strong>規劃階段：</strong>以表C.1 為底稿召開需求訪談，逐欄確認「預設配置是否適用」，把業主的口頭需求（「要可以熱插拔」「樓板要有防火時效」）轉譯為欄位值，避免規格書漏項。</li>
+          <li><strong>採購階段：</strong>將填妥之表C.1 列為合約附件，並明定其與圖說、規範本文之優先順序；要求投標廠商逐欄回應（接受／偏差），偏差項即為評比與議價焦點。</li>
+          <li><strong>查驗階段：</strong>交貨驗收時逐欄勾稽——IP 等級、I<sub>cw</sub>、防火時效、N 相截面比例、阻抗數據是否如約交付；表C.1 是驗收「有沒有依據」的分水嶺。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>計算類附錄＝設計審查工具</h4>
+        <ul>
+          <li><strong>附錄AA：</strong>以製造廠宣告之 R、X 複核各饋線末端電壓降，注意 k 因數之選用（末端集中 vs. 均勻分布），並核對採用值是否為操作溫度下之熱態值。</li>
+          <li><strong>附錄BB～DD：</strong>審查型式試驗報告中之阻抗量測紀錄（配置、儀表、溫度修正）是否符合附錄方法；確認 R<sub>20</sub>／Z<sub>20</sub>（冷態，最大故障電流）與 R／Z（熱態，最小故障電流、電壓降）兩組數據齊備。</li>
+          <li><strong>附錄EE：</strong>當 Busway 鄰近敏感設備（精密儀器室、醫療區、EMC 敏感機房），於表C.1 指定磁場量測要求，並以量測報告評估安全距離或遮蔽需求。</li>
+          <li><strong>附錄D：</strong>把表D.1 展開成專案查檢表，逐項登錄查證方式（試驗／比較／評估）與報告編號，作為設計審查通過之放行條件。</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout tip">
+      <strong>顧問心法：</strong>表C.1 與表D.1 是一體兩面——C.1 是「使用者要什麼」，D.1 是「製造廠拿什麼證明」。試運轉顧問在審查會議上最有力的一句話是：「請對照表C.1 第○欄的使用者要求，提出表D.1 對應項次之查證證據。」兩表交叉使用，規格落實無死角。
+    </div>
+  </div>
+
+  <div class="block">
+    <h3>■ 交付文件解析</h3>
+    <div class="grid-3">
+      <div class="card">
+        <h4>填妥之表C.1（使用者規範表）</h4>
+        <p>由業主／顧問填寫、製造廠逐欄回應之合約文件。查收重點：每欄均有明確值或明示接受預設；偏差回應已標註；簽認欄完整。此文件是後續一切驗收之母本。</p>
+      </div>
+      <div class="card">
+        <h4>設計查證文件包（對應表D.1）</h4>
+        <p>15 項特性之查證證據：型式試驗報告（試驗）、基準設計比較分析（比較）、設計評估紀錄（評估）。查收重點：報告涵蓋實際供貨型號與規格（I<sub>nA</sub>、I<sub>cw</sub>、IP、防火時效），外推之基準設計關聯性明確。</p>
+      </div>
+      <div class="card">
+        <h4>阻抗特性宣告表（表102／表103 數據）</h4>
+        <p>相導體 R、X、Z（含 R<sub>20</sub>、Z<sub>20</sub>）及故障迴路零序阻抗、電阻電抗（含 20 ℃值），註明量測依據（附錄BB／CC／DD）與適用溫度。查收重點：單位為 Ω/m（或 mΩ/m）、冷熱態兩組齊備、與電壓降表一致。</p>
+      </div>
+      <div class="card">
+        <h4>電壓降計算書／預計算表</h4>
+        <p>製造廠提供之不同功率因數電壓降表（V/A、V/m）或專案逐饋線計算書（附錄AA 方法）。查收重點：k 因數假設、採用之 R／X 溫度基準、末端電壓降百分比與設計準則之符合性。</p>
+      </div>
+      <div class="card">
+        <h4>阻抗量測報告（附錄BB／CC／DD）</h4>
+        <p>量測配置（樣品長度 L、接法）、儀表（瓦特計法或相位差法）、量測值（V、I、P、θ、Δθ）與溫度修正計算之完整紀錄。查收重點：相電流接近額定電流之程度、箱體作為保護導體時之搭接方式是否如實反映使用狀態。</p>
+      </div>
+      <div class="card">
+        <h4>磁場量測報告（附錄EE，有規定時）</h4>
+        <p>依 IEC 61786 執行之量測：五軸各預設位置之 B<sub>x</sub>、B<sub>y</sub> 與合成模數 B，以及分布圖表。查收重點：量測距離基準、合成公式 B＝(B<sub>x</sub><sup>2</sup>＋B<sub>y</sub><sup>2</sup>)<sup>1/2</sup> 之應用、與敏感設備容許值之比對結論。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <h3>■ 測試程序、方法與驗證重點</h3>
+    <p>附錄BB／CC／DD 三者的量測邏輯一致（量 V、I、P → 算 Z、R、X → 溫度修正），僅接法與迴路定義不同。以下整合為標準「阻抗量測流程」，適用於型式試驗見證與試驗報告審查：</p>
+    <div class="flow-steps">
+      <div class="step"><b>步驟 1　樣品與配置確認</b>依 10.10.2 溫升試驗之相同配置架設試驗樣品，確認 BTU 長度、安裝方向與實際使用一致；箱體若作為保護性導體（之一部分），依原製造廠說明書搭接至 PE/PEN；箱體為唯一保護導體時，量測改在相導體與箱體 PE 端子間進行。</div>
+      <div class="step"><b>步驟 2　量測迴路接線</b>附錄BB：輸出端所有相導體短路（星點），接三相電源、電流表、電壓表與瓦特計 W<sub>1</sub>／W<sub>2</sub>。附錄CC：三相導體兩端各自並聯，依次對 N／PEN／PE 構成迴路。附錄DD：每個相導體依次連接至每個其他導體（相對相、相對 N、相對 PEN、相對 PE）。</div>
+      <div class="step"><b>步驟 3　界定量測長度 L</b>確認電壓表引線之跨接位置——L 為輸入端電壓表引線連接點至輸出端連接點之 BT 通道長度(m)；L 之界定直接影響每公尺阻抗值，須拍照存證。</div>
+      <div class="step"><b>步驟 4　通電與量測</b>附錄BB：相電流儘可能接近額定電流，於溫升試驗期間記錄 V<sub>12</sub>／V<sub>23</sub>／V<sub>31</sub>、I<sub>1</sub>／I<sub>2</sub>／I<sub>3</sub>、P（W<sub>1</sub>＋W<sub>2</sub>）、θ、Δθ。附錄CC／DD：電流可小於 I<sub>nc</sub>，僅在記錄量測值必要期間施加（短時通電，溫升忽略，初始導體溫度＝θ），記錄 V<sub>x</sub>／V<sub>xx</sub>、I<sub>x</sub>、P<sub>x</sub>／P<sub>xx</sub>；箱體為保護導體時，製造廠宜決定代表性故障電流值與持續期間以防溫升過高。</div>
+      <div class="step"><b>步驟 5　阻抗計算</b>依各附錄公式計算：BB 求 Z<sub>θ</sub>＝V/(√3·I·L)、R<sub>θ</sub>＝P/(3I<sup>2</sup>L)、X＝(Z<sub>θ</sub><sup>2</sup>−R<sub>θ</sub><sup>2</sup>)<sup>1/2</sup>；CC 求 Z<sub>(0)bθx</sub>＝3V<sub>x</sub>/(I<sub>x</sub>L)、R<sub>(0)bθx</sub>＝3P<sub>x</sub>/(I<sub>x</sub><sup>2</sup>L)；DD 求 Z<sub>bθxx</sub>＝V<sub>xx</sub>/(I<sub>xx</sub>L)、R<sub>bθxx</sub>＝P<sub>xx</sub>/(I<sub>xx</sub><sup>2</sup>L)，並計算各迴路平均值。</div>
+      <div class="step"><b>步驟 6　溫度修正</b>以 0.004/℃ 係數修正：R<sub>20</sub>＝R<sub>θ</sub>/[1＋0.004(θ＋Δθ−20)]（BB）或 R<sub>θ</sub>/[1＋0.004(θ−20)]（CC／DD 短時量測）；熱態 R＝R<sub>20</sub>[1＋0.004(35＋Δθ−20)]；再合成 Z<sub>20</sub>＝(R<sub>20</sub><sup>2</sup>＋X<sup>2</sup>)<sup>1/2</sup>、Z＝(R<sup>2</sup>＋X<sup>2</sup>)<sup>1/2</sup>。Δθ 取附錄BB 或溫升試驗之平均穩定溫升。</div>
+      <div class="step"><b>步驟 7　結果判定與交付</b>核對：冷態（20 ℃）與熱態（35 ℃＋Δθ）兩組數據齊備；正／負序阻抗（BB）與零序阻抗（CC）、故障迴路 R／X（DD）可對應表102／表103 格式宣告；數據用於附錄AA 電壓降與表104 故障電流計算之銜接正確。量測原始紀錄、計算過程與修正係數列入報告交付。</div>
+    </div>
+    <p><strong>驗證重點（見證／審報時勾稽）：</strong></p>
+    <ul>
+      <li>功率量測採二瓦特計法（W<sub>1</sub>、W<sub>2</sub>）或三瓦特計法，或以相位差 φ 之量測替代——三種方法皆為原文認可，但報告須載明所用方法。</li>
+      <li>附錄BB 之量測「記錄溫升試驗期間之量測值」，故相電流須儘可能接近額定電流，且 Δθ 須達穩定；附錄CC／DD 為短時通電，初始溫度即周圍溫度，兩者溫度基準不同，修正公式亦不同（BB 之 θ＋Δθ vs. CC／DD 之 θ），不可混用。</li>
+      <li>電抗 X 與溫度無關，僅 R（及由 R 合成之 Z）需溫度修正——審報時若發現 X 亦被「修正」，即為計算錯誤。</li>
+      <li>故障條件與額定電流下之阻抗「可完全不同」（原文備考），尤以箱體作為保護導體時為然；不得直接以附錄BB 之相導體阻抗推估故障迴路阻抗。</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <h3>■ 痛點與對策</h3>
+    <div class="callout pain">
+      <strong>痛點一：規範表漏填，驗收無依據。</strong>採購文件僅寫「400 A 匯流排槽一式」，未填表C.1；交貨時業主主張要 IP54、防火 120 min、N 相 100 %，廠商主張「預設配置」IP 2X、防火 0 min、N 相 50 %——雙方都沒說錯，因為標準的預設就是「使用者不指定時」的值，爭議只能以變更議價收場，工期與成本雙輸。
+    </div>
+    <p><strong>對策：</strong>把「填妥表C.1」列為設計完成之放行條件（gate），由顧問帶業主逐欄確認並簽認；招標文件規定投標者逐欄回應。成本效益觀點：填表僅需數小時會議，漏項的事後變更（更換高 IP 槽體、補防火包覆、改 N 相截面）動輒數十萬至百萬元且影響工期——表C.1 是全專案 CP 值最高的文件。</p>
+    <div class="callout pain">
+      <strong>痛點二：製造廠不提供阻抗數據，或提供「來路不明」的數據。</strong>設計審查要求 R、X、Z 與故障迴路阻抗以核算電壓降與保護協調，廠商回以「型錄沒有」或僅給單一溫度基準之值；甚或以附錄BB 之相導體阻抗冒充故障迴路阻抗，導致接地故障電流高估、保護器誤選型，試運轉時才發現最遠端接地故障不跳脫。
+    </div>
+    <p><strong>對策：</strong>於表C.1「相導體特性／電壓降」與「故障迴路特性」欄明文要求依<strong>附錄BB／CC／DD 方法</strong>提供數據（含冷態 20 ℃與熱態 35 ℃＋Δθ 兩組），並列入交付文件清單與付款保留款條件；審報時依本章「阻抗量測流程」七步驟勾稽量測配置、方法（瓦特計法／相位差法）與溫度修正。成本效益觀點：阻抗數據是型式試驗之既有副產品（借用 10.10 溫升試驗配置），廠商提供成本極低；因其缺失而錯誤選型之保護協調事故，代價是人身與設備安全等級，無法以金額衡量。</p>
+    <div class="callout pain">
+      <strong>痛點三：電壓降以「電纜思維」滿載全長計算，Busway 選型過度放大。</strong>設計者不熟悉 k 因數，將均勻分布之分接負載當成末端集中負載，電壓降高估近倍，導體規格放大一級，銅用量與成本虚增；或反之忽略熱態電阻，以 20 ℃冷態值計算，電壓降低估而末端電壓不足。
+    </div>
+    <p><strong>對策：</strong>設計審查要求計算書載明 k 之依據（負載分布假設與分支數 n）、R／X 之溫度基準；善用製造廠依不同功率因數預先計算之電壓降表（V/A、V/m）交叉核對。效益：400 A、60 m 之饋線，正確應用 k＝0.55 可在滿足電壓降準則下避免不必要的放大，節省銅材與吊掛荷重。</p>
+  </div>
+
+  <div class="kp-box">
+    <h4>知識點複習</h4>
+    <ol>
+      <li>本標準附錄架構：CNS 15783-1 附錄原則適用，但<strong>附錄C、D 被 BTS 專用版本取代</strong>，附錄E、O、P 不適用，並<strong>追加附錄AA～EE</strong>；各附錄均為「參考」性質，但經採購文件引用即成合約依據。</li>
+      <li>表C.1 使用者規範表四大欄：特性、參考節次、預設配置／標準所列之選項、使用者要求；<strong>使用者要求留白＝接受預設配置</strong>，留白本身就是合約決定。</li>
+      <li>表C.1 關鍵填寫欄位：接地系統、標稱電壓、頻率、預期短路電流 I<sub>cp</sub>、IP 等級（含移除分接頭單元後之保護）、機械負載、環境溫度、防火時效、安裝型式、I<sub>nA</sub>／I<sub>nc</sub>、諧波與 N 相比例、故障迴路特性與相導體特性之數據要求。</li>
+      <li>表D.1 設計查證 15 項次，涵蓋 10.2～10.13 及 BTS 專屬 10.2.101、10.2.102、10.101、10.102；溫升(10.10)、短路耐受(10.11)與保護電路短路耐受(10.5.3)允許「與基準設計之比較」，其餘多限試驗或評估。</li>
+      <li>附錄AA 電壓降公式 u＝√3·k·I<sub>B</sub>·L·(Rcosφ＋Xsinφ)；k 為負載分布因數：末端集中 k＝1，均勻分布 n 分支 k＝(n＋1)/2n，距原點 d 之分支 k＝(2n＋1−n·d/L)/2n。</li>
+      <li>附錄BB 以輸出端三相短路（星點）配置量測，Z<sub>θ</sub>＝V/(√3IL)、R<sub>θ</sub>＝P/(3I<sup>2</sup>L)、X＝(Z<sub>θ</sub><sup>2</sup>−R<sub>θ</sub><sup>2</sup>)<sup>1/2</sup>；功率可用二瓦特計、三瓦特計或相位差法求得。</li>
+      <li>溫度修正係數 0.004/℃：R<sub>20</sub>＝R<sub>θ</sub>/[1＋0.004(θ＋Δθ−20)]，熱態 R＝R<sub>20</sub>[1＋0.004(35＋Δθ−20)]；X 與溫度無關，僅 R、Z 需修正；冷態值供最大故障電流、熱態值供最小故障電流與電壓降計算。</li>
+      <li>附錄CC 量測<strong>零序阻抗</strong>（三相並聯對 N／PEN／PE），供對稱分量法；附錄DD 逐迴路量測<strong>故障迴路 R、X</strong>（相對相、相對 N／PEN／PE），供阻抗法；故障條件下之阻抗可與額定電流下完全不同。</li>
+      <li>附錄EE 磁場量測：≥3 m 直形 BTU 水平支撐，1,200×2,000 mm 面板五量測軸 A(＋y)、B、C(x)、D、E(−y)，依 IEC 61786 以高斯計量測，B＝(B<sub>x</sub><sup>2</sup>＋B<sub>y</sub><sup>2</sup>)<sup>1/2</sup>；「若有規定時」才需量測，故須於表C.1 指定。</li>
+      <li>參考資料含 IEC 60909-0（故障電流計算）等五項，相對應國際標準為 IEC 61439-6:2012；附錄EE 另引 IEC 61786，防電擊引 IEC 60364-4-41。</li>
+    </ol>
+  </div>
+
+  <div class="case-box dc">
+    <h4>AI 算力中心應用連結</h4>
+    <p>AI 機房的列頭 Busway 是「附錄依賴度」最高的應用場景：<strong>電壓降</strong>直接影響 IT 負載——GPU 伺服器電源雖具寬輸入範圍，但長距離饋線之末端電壓仍須以附錄AA（正確的 k 因數與熱態 R）核算，避免高載時段觸及 UPS 旁路或電源模組告警閾值；<strong>故障迴路阻抗</strong>（附錄CC／DD）決定 TN-S 系統接地故障之自動切離與 RCD 協調，是雙路 A/B 冗餘架構下保護選擇性的計算基礎；<strong>磁場</strong>（附錄EE）關係精密監測儀器、醫療級設施共構機房與 EMC 敏感設備之布置距離。而表C.1 則是把「不停機熱插拔、防火時效、N 相 100 %、高環溫降額」這些機房剛性需求，轉化為可驗收合約條款的唯一標準化管道——AI 算力中心的 Busway 採購，從填好這張表開始。</p>
+  </div>
+</section>
